@@ -1,9 +1,3 @@
-# Configure the Google Cloud provider
-provider "google" {
-  region  = "us-east1-b"
-  credentials = var.gcp-creds
-}
-
 # Create a Google Compute instance
 resource "google_compute_instance" "example" {
   name          = "example"
