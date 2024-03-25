@@ -23,3 +23,4 @@ resource "google_compute_instance" "example" {
       // Ephemeral IP
     }
   }
+}
