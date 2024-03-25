@@ -1,6 +1,7 @@
 # Configure the Google Cloud provider
 provider "google" {
   region  = "us-east1-b"
+  credentials = var.gcp-creds
 }
 
 # Create a Google Compute instance
