@@ -2,7 +2,7 @@
 
 # Configure the Google Cloud provider
 provider "google" {
-   project     =  var.project_id
+   project     =  "var.project_id"
    region      = "us-central1"
  }
 # --- Resources for the Service Account Policy ---
