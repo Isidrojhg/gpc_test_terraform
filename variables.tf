@@ -1,3 +1,0 @@
-variable "gcp-creds" {
-default= ""
-}
