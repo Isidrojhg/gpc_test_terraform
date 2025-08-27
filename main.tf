@@ -2,8 +2,7 @@
 
 # Configure the Google Cloud provider
 provider "google" {
-   credentials = file("./credentials.json")
-   project     = "project-id"
+   project     =  var.project_id
    region      = "us-central1"
  }
 # --- Resources for the Service Account Policy ---
