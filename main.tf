@@ -18,7 +18,7 @@ resource "google_service_account" "test_service_account" {
 
 # Create a custom role with the critical permission 'iam.roles.update'
 resource "google_project_iam_custom_role" "test_sa_role" {
-  project     = "your-gcp-project-id"
+  project     =  var.project_id
   role_id     = "testSARoleWithUpdatePerm"
   title       = "Test SA Role"
   permissions = ["iam.roles.update"]
@@ -26,7 +26,7 @@ resource "google_project_iam_custom_role" "test_sa_role" {
 
 # Assign the custom role to the service account
 resource "google_project_iam_member" "test_sa_member" {
-  project = "your-gcp-project-id"
+  project = var.project_id
   role    = google_project_iam_custom_role.test_sa_role.id
   member  = "serviceAccount:${google_service_account.test_service_account.email}"
 }
@@ -37,7 +37,7 @@ resource "google_project_iam_member" "test_sa_member" {
 
 # Create a custom role with the critical permission 'iam.roles.create'
 resource "google_project_iam_custom_role" "test_user_role" {
-  project     = "your-gcp-project-id"
+  project     = var.project_id
   role_id     = "testUserRoleWithCreatePerm"
   title       = "Test User Role"
   permissions = ["iam.roles.create"]
@@ -45,7 +45,7 @@ resource "google_project_iam_custom_role" "test_user_role" {
 
 # Assign the custom role to a specific user
 resource "google_project_iam_member" "test_user_member" {
-  project = "your-gcp-project-id"
+  project = var.project_id
   role    = google_project_iam_custom_role.test_user_role.id
   member  = "user:test@example.com"
 }
